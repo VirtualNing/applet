@@ -1,0 +1,28 @@
+/* components/amount/index.wxss */
+.num_wrap{
+  width: 220rpx;
+  display: flex;
+  flex-direction: row;
+}
+.num_wrap .btn{
+  display: inline-block;
+  width: 70rpx;
+  height: 60rpx;
+  background: #f7f7f7;
+  border-radius: 0;
+  color: #333;
+}
+.btn::after{
+  border: none;
+}
+.num_wrap .input{
+  display: block;
+  width: 90rpx;
+  background: #f7f7f7;
+  height: 72rpx;
+  color: #333;
+  font-size: 24rpx;
+  text-align: center;
+  border: none;
+  margin: 0 2rpx;
+}

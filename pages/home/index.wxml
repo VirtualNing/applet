@@ -1,0 +1,90 @@
+<!--pages/home/index.wxml-->
+<view class="container">
+  <!-- 搜索 -->
+  <view class="search">
+    <view class="scan">
+      <view class="iconfont icon-saoyisao"></view>
+    </view>
+    <view class="search-input">
+      <view class="iconfont icon-sousuo"></view>
+      <input class="search-text" placeholder="搜索商品" />
+    </view>
+    <view class="scan">
+      <view class="iconfont icon-xiaoxizhongxin"></view>
+    </view>
+  </view>
+  <!-- 可滚动区域 -->
+  <scroll-view class="content-scroll" scroll-y="true" enable-flex="true">
+    <!-- 轮播图 -->
+    <view class="indicator-wrap">
+      <swiper
+       indicator-dots="{{indicatorDots}}"
+       vertical="{{vertical}}"
+       autoplay="{{autoplay}}"
+       interval="{{interval}}"
+       duration="{{duration}}"
+       circular="true"
+       indicator-color="rgba(255,255,255,.3)"
+       indicator-active-color="#fff"
+       style="width:100%;height:325rpx;"
+      >
+      <block wx:for="{{swipers}}" wx:key="name">
+        <swiper-item>
+          <image class="swiper-item" src="{{item.image}}" mode="aspectFill"></image>
+        </swiper-item>
+      </block>
+      </swiper>
+    </view>
+    <view class="big-logo">
+      <block wx:for="{{logos}}" wx:key="name">
+        <view class="logoinfo">
+          <image style="width: 100rpx; height: 100rpx;;" src="{{item.image}}" mode="aspectFit"></image>
+          <text class="logotext">{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+    <!-- 京东秒杀 -->
+    <view class="page-margin">
+      <view class="page-row">
+        <view class="page-row-img-wrapper">
+          <image class="theme_img" src="/image/jd_skill.png" mode="aspectFit" />
+        </view>
+        <text>更多秒杀></text>
+      </view>
+      <scroll-view class="theme-scroll" scroll-x="true" enable-flex="true">
+        <block wx:for="{{quick}}" wx:key="id">
+          <view style="display:inline-block;">
+            <view class="page-column">
+              <image src="{{item.image}}" mode="aspectFill" />
+            </view>
+            <text class="page-column-text">￥192</text>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+    <!-- 推荐 -->
+    <view class="page-list">
+      <view class="page-list-row">
+        <view class="iconfont icon-huo" style="display: inline-block;"></view>
+        <text>为你推荐</text>
+      </view>
+      <view class="list-flex">
+       <block wx:for="{{list}}" wx:key="product_id">
+          <view class="items-wrapper" data-code="{{item.product_id}}" bindtap="showdetail">
+            <view class="items-img">
+              <image src="{{item.product_img_url}}" mode="aspectFit" />
+              <!-- <image src="/image/ceshi2.jpg" mode="aspectFit" /> -->
+            </view>
+            <view class="items-title">
+              <text>{{item.product_name}}</text>
+              <view class="items-price">
+              ￥{{item.product_price}}
+                <text class="buy-num">{{item.product_comment_num}}人付款</text>
+              </view>
+            </view>
+          </view>
+       </block>
+      </view>
+    </view>
+  </scroll-view>
+</view>

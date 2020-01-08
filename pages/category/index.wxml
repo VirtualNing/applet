@@ -1,0 +1,25 @@
+<view class="category">
+  <scroll-view class="nav_left" scroll-y="true">
+    <block wx:for="{{list}}" wx:key="category_id">
+      <view
+       class="nav_left_items {{currenIndex == index ? 'nav_left_item-active' : '' }}"
+       data-index="{{index}}"
+       bindtap="switchRightTab"
+      >
+        {{item.category_name}}
+      </view>
+    </block>
+  </scroll-view>
+  <scroll-view class="nav_right" scroll-y="true">
+    <view wx:if="{{list[currenIndex]}}">
+      <view class="jd-category-wrap">
+        <block wx:for="{{list[currenIndex].category_list}}" wx:key="index" wx:for-item="ids">
+          <view class="jd-category-style" data-id="{{ids.shop_id}}" bindtap="showListView">
+            <image class="list_img" src="{{ids.product_img_url}}" mode="aspectFit" />
+            <text class="list-text">{{ids.shop_name}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+  </scroll-view>
+</view>

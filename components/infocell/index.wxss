@@ -1,0 +1,28 @@
+/* components/infocell/index.wxss */
+.payWrap{
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  padding: 20rpx 0rpx;
+  margin: 10rpx 0 30rpx 0;
+  background: #fff;
+}
+.title{
+  display: inline-block;
+  width: 10%;
+  color: #999;
+  text-align: center;
+}
+.desc{
+  display: inline-block;
+  width: 80%;
+}
+.icon{
+  display: inline-block;
+  width: 10%;
+  color: #666;
+  font-weight: 700;
+  text-align: center;
+}
